@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cat Lovers' Hub</title>
+  <style>
+
+           /* CSS Styles */
+          /* Grid for Grooming */
+          .grooming-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 20px;
+          }
+
+          /* Collapsible content for Pets Hotel */
+          .collapsible {
+            background-color: #f3f3f3;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            width: 100%;
+            transition: 0.4s;
+          }
+
+          .content {
+            display: none;
+            overflow: hidden;
+          }
+
+          /* Collapsible sets for Pet Day Camp */
+          .collapsible-set {
+            margin-bottom: 10px;
+          }
+
+          .set-header {
+            background-color: #f3f3f3;
+            color: #333;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            text-align: left;
+            outline: none;
+            width: 100%;
+            transition: 0.4s;
+          }
+
+          .set-content {
+            display: none;
+            overflow: hidden;
+            padding-left: 20px;
+          }
+
+
+
+    /* Cat-themed ambiance styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f8f8; /* Light gray background */
+      color: #333; /* Text color */
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-image: url('images/pawprint.png'); /* Replace 'images/pawprint' with your image path */
+      background-size: cover; /* Ensure the image covers the header */
+      background-position: center; /* Center the image */
+      height: 200px; /* Set a height for the header */
+      color: white; /* Text color on top of the image */
+      text-align: center;
+      padding-top: 80px; /* Adjust spacing as needed */
+    }
+    nav {
+      background-color: #333; /* Dark navigation bar */
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    nav a:hover {
+      text-decoration: underline; /* Underline on hover */
+    }
+    main {
+      padding: 20px;
+    }
+    footer {
+      background-color: #333; /* Dark footer */
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+
+    /* Basic styling */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .contact-info {
+      margin-bottom: 20px;
+    }
+    .contact-info h3 {
+      margin-top: 0;
+    }
+    .contact-info p {
+      margin-bottom: 5px;
+    }
+
+
+     #map {
+      height: 400px;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1 style="color:black;font-family: cursive;font-size: 87px;">Welcome to Cat Lovers' Hub</h1>
+  </header>
+  <nav>   
+    <a href="index.html">Blog</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="pet_services.html">Pet Services</a>
+  </nav>
+  <main>
+        <h1>Pet Services</h1>
+
+        <h2>Grooming</h2>
+        <div class="grooming-grid">
+          <!-- Grid items for grooming services -->          
+          <div id="map"></div>
+          <div>Grooming Service 2</div>
+          <div>Grooming Service 3</div>
+          <!-- Add more grooming services as needed -->
+        </div>
+
+        <h2>Pets Hotel</h2>
+        <!-- Collapsible content for Pets Hotel -->
+        <button class="collapsible">Click to expand for more information about our Pets Hotel</button>
+        <div class="content">
+          <p>At our Pets Hotel, we provide a luxurious and safe haven for your beloved companions. Our state-of-the-art facilities offer premium accommodations designed to ensure your pet's comfort and happiness. From spacious, climate-controlled rooms to personalized care and round-the-clock attention from our trained staff, we strive to create a home away from home for your furry friends. Your pet's well-being and contentment are our top priorities, guaranteeing a delightful stay filled with care, fun, and relaxation.</p>
+        </div>
+
+        <h2>Pet Day Camp</h2>
+        <!-- Collapsible sets for Pet Day Camp -->
+        <div class="collapsible-set">
+          <button class="set-header">Group 1 - Activities</button>
+          <div class="set-content">
+            <p>Morning Playtime</p>
+            <p>Training Sessions</p>
+            <p>Socialization Activities</p>
+          </div>
+        </div>
+
+        <div class="collapsible-set">
+          <button class="set-header">Group 2 - Facilities</button>
+          <div class="set-content">
+            <p>Outdoor Play Area</p>
+            <p>Rest Zones</p>
+            <p>Feeding Stations</p>
+          </div>
+        </div>
+
+        <div class="collapsible-set">
+          <button class="set-header">Group 3 - Policies</button>
+          <div class="set-content">
+            <p>Registration Requirements</p>
+            <p>Daily Schedule</p>
+            <p>Pricing Options</p>
+          </div>
+        </div>
+      <br><br><br><br><br><br>
+  </main>
+  <footer>
+    <p>&copy; 2023 Cat Lovers' Hub</p>
+  </footer>
+
+
+</body>
+  <!-- Include jQuery library -->
+  <script src="plugins/jquery-3.6.0.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRZsdSkGtbAwPf8I5Zktf_s9tfBmJIg5o&callback=initMap" async defer></script>
+  <script>
+
+   
+
+ // Initialize the map
+    function initMap() {
+      // Define the map options (centered on a location and initial zoom level)
+      const mapOptions = {
+        center: { lat: 52.2707789, lng: -113.8304593 }, // Example: New York City coordinates
+        zoom: 12 // Adjust zoom level as needed
+      };
+
+      // Create a new map instance, providing the map element and options
+      const map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    }
+
+ 
+
+
+
+    // Get the current page URL
+    const currentPage = window.location.href;
+
+    // Get all the navigation links
+    const links = document.querySelectorAll('nav a');
+
+    // Iterate through the links and change background color of the matching link
+    links.forEach(link => {
+      if (link.href === currentPage) {
+        link.style.backgroundColor = '#23a2a9';
+      }
+    });
+
+
+     // jQuery function to handle the click event on the back button
+    $(document).ready(function(){
+      $('#backButton').on('click', function(){
+        // Redirect to index.php when the button is clicked
+        window.location.href = 'index.html';
+      });
+    });
+
+
+
+      // JavaScript for collapsible content and sets
+    const coll = document.querySelectorAll('.collapsible');
+    coll.forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    const collSet = document.querySelectorAll('.set-header');
+    collSet.forEach(item => {
+      item.addEventListener('click', function() {
+        this.classList.toggle('active');
+        const content = this.nextElementSibling;
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+
+  </script>
+
+</html>
